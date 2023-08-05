@@ -1,7 +1,6 @@
 
 
 let serial_number = 0;
-let task = "";
 
 const table = document.getElementById("table");
 
@@ -11,19 +10,29 @@ function calculate_serial_number() {
     const first_cell_content = last_row.cells[0].textContent;
     serial_number = parseInt(first_cell_content); 
 
-    serial_number++;
+    return serial_number++;
 }
 
-const add_input = () => {
-    task = document.getElementById("task_input").value;
+
+const add_row = () => {
+    const new_row = document.createElement("tr");
+    
+    let serial_cell = document.createElement("td");
+    serial_cell.textContent = calculate_serial_number();
+    new_row.appendChild(serial_cell);
+    
+    let task_cell = document.createElement("td");
+    task_cell .textContent= document.getElementById("task_input").value;
+    new_row.appendChild(task_cell);
+    
+    let actions_cell = document.createElement("td");
+    actions_cell.textContent = "actions";
+    new_row.appendChild(actions_cell);
+
+    table.querySelector("tbody").appendChild(new_row);
     
 }
- 
-const add_row = () => {
-    table
-}
 
-console.log(task);
 
 
 // let serial_number = 0;
