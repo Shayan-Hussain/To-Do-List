@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <a class="logo_anchor">
+            <img src="logo_80x80px.png" class="logo" alt="logo">
+        </a>
+        <nav>
+            <ul class="nav_links">
+                <li><a href="#">About</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Services</a></li>
+             </ul>
+        </nav>
+        <a class="cta" href="# "><button id="contact_btn">Contact</button></a>
+    </header>    
+    <main class="main_body" id="main">
+
+        <div class="add_task">
+            <input type="text" placeholder="enter..." id="task_input" value="">
+            <button type="submit" name="Add" id="add_btn" onclick="add_input()">Add</button>
+        </div>
+
+        <table id="table">
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Task Discription</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="table_body">
+                <tr>
+                    <td>1</td>
+                    <td>task</td>
+                    <td>actions</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>task</td>
+                    <td>actions</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>task</td>
+                    <td>actions</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+    <footer>
+
+    </footer>
+    <script src="script.js"></script>
+
+</body>
+</html>
