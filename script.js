@@ -6,23 +6,38 @@ const table = document.getElementById("table");
 
 function calculate_serial_number() {
     const last_row_index = table.rows.length - 1;
-    const last_row = table.rows[last_row_index];
-    const first_cell_content = last_row.cells[0].textContent;
-    serial_number = parseInt(first_cell_content); 
+    if (last_row_index > 0) {
+        const last_row = table.rows[last_row_index];
+        const first_cell_content = last_row.cells[0].textContent;
+        serial_number = parseInt(first_cell_content); 
 
-    return serial_number++;
+        serial_number++;
+        return;
+    }
+    else {
+        serial_number++;
+    }
 }
 
 
 const add_row = () => {
+    calculate_serial_number()
+
     const new_row = document.createElement("tr");
     
     let serial_cell = document.createElement("td");
-    serial_cell.textContent = calculate_serial_number();
+    serial_cell.textContent = serial_number;
     new_row.appendChild(serial_cell);
     
     let task_cell = document.createElement("td");
-    task_cell .textContent= document.getElementById("task_input").value;
+    if (document.getElementById("task_input").value == "") {
+        alert("Enter a task before submitting!")
+        end;
+    }
+    else {
+        task_cell .textContent= document.getElementById("task_input").value;
+    }
+
     new_row.appendChild(task_cell);
     
     let actions_cell = document.createElement("td");
@@ -31,33 +46,11 @@ const add_row = () => {
 
     table.querySelector("tbody").appendChild(new_row);
     
+    document.getElementById("task_input").value = "";
 }
 
 
 
-// let serial_number = 0;
-// function calculate_serial_number() {
 
-//     let table = document.getElementById("table_body");
-//     let last_row_index = table.rows.length - 1;
 
-//     let last_row = table.rows[last_row_index];
-
-//     let last_row_cell = last_row[0].textContent;
-    
-//     serial_number = parseInt(last_row_cell);
-// }
-
-// calculate_serial_number();
-
-// console.log(serial_number);
-
-// const createRow = () => {
-//     document.getElementById("table_body").innerHTML = '';
-
-    // const row_html = "<tr>
-    //                 <td>$</td>
-    //                 <td></td>
-    //                 <td></td>
-    //                 </tr>"
 
