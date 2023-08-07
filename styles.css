@@ -105,6 +105,12 @@ button:hover {
 #add_btn:hover {
     background-color:rgb(145, 43, 0);
 }
+#done_btn {
+    background-color: green;
+}
+#remove_btn {
+    background-color: brown;
+}
 
 #task_input {
     color: black;
@@ -147,7 +153,6 @@ td {
     padding-left: 30px;
 
 }
-
 
 footer {
     height: 100px;
