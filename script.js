@@ -57,15 +57,14 @@
 // // CODE BELOW THIS IS UPDATED (NOT COMPLETED) VERION WHERE THE LOCAL STORAGE IS BEING USED //
 
 
-
-const get_array = () => {
-
-  return JSON.parse(localStorage.getItem("arr"));
-
-}
-
 let arr = [];
 
+
+const get_array = () => {
+    
+    return JSON.parse(localStorage.getItem("arr"));
+    
+}
 
 const store_object = () => {
 
@@ -76,6 +75,8 @@ const store_object = () => {
     if (input !== "") {
         let serial_number = arr_storage.length;
 
+        console.log(serial_number);
+        
         let new_object = {
             serial : serial_number,
             task : input
@@ -93,27 +94,29 @@ const store_object = () => {
 }
 
 const create_new_row = (row) => {
+
+    console.log(row.serial)
     
     store_object();
 
-    let table_body = document.getElementById("table_body");
+    // let table_body = document.getElementById("table_body");
 
-    let new_row = document.createElement("tr");
+    // let new_row = document.createElement("tr");
 
-    let serial_cell = document.createElement("td");
-    serial_cell.innerHTML = `<td>${row.serial}</td>`
-    new_row.appendChild(serial_cell);
+    // let serial_cell = document.createElement("td");
+    // serial_cell.innerHTML = `<td>${row.serial}</td>`
+    // new_row.appendChild(serial_cell);
 
-    let task_cell = document.createElement("td");
-    task_cell.innerHTML = `<td>${row.task}</td>`
-    new_row.appendChild(task_cell);
+    // let task_cell = document.createElement("td");
+    // task_cell.innerHTML = `<td>${row.task}</td>`
+    // new_row.appendChild(task_cell);
 
-    let actions_cell = document.createElement("td");
-    actions_cell.innerHTML = `<button class="act_btn" id="${row.serial}_done">Done</button>
-                            <button class="act_btn" id="${row.serial}_remove">Remove</button>`
-    new_row.appendChild(actions_cell);
+    // let actions_cell = document.createElement("td");
+    // actions_cell.innerHTML = `<button class="act_btn" id="${row.serial}_done">Done</button>
+    //                         <button class="act_btn" id="${row.serial}_remove">Remove</button>`
+    // new_row.appendChild(actions_cell);
 
-    table_body.appendChild(new_row);
+    // table_body.appendChild(new_row);
 
 }
 
@@ -133,10 +136,6 @@ arr_storage = get_array();
 if (arr_storage == null) {
     arr_storage = localStorage.setItem("arr", JSON.stringify(arr));
 }   else    {
-    iterate();
-}
-
-window.onbeforeunload = function () {
     iterate();
 }
 
