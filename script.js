@@ -90,38 +90,39 @@ const store_object = () => {
     }
 
     document.getElementById("task_input").value = "";
+    iterate();
 
 }
 
+
 const create_new_row = (row) => {
 
-    console.log(row.serial)
+    console.log(row.task)
     
-    store_object();
 
-    // let table_body = document.getElementById("table_body");
+    let table_body = document.getElementById("table_body");
 
-    // let new_row = document.createElement("tr");
+    let new_row = document.createElement("tr");
 
-    // let serial_cell = document.createElement("td");
-    // serial_cell.innerHTML = `<td>${row.serial}</td>`
-    // new_row.appendChild(serial_cell);
+    let serial_cell = document.createElement("td");
+    serial_cell.innerHTML = `<td>${row.serial}</td>`
+    new_row.appendChild(serial_cell);
 
-    // let task_cell = document.createElement("td");
-    // task_cell.innerHTML = `<td>${row.task}</td>`
-    // new_row.appendChild(task_cell);
+    let task_cell = document.createElement("td");
+    task_cell.innerHTML = `<td>${row.task}</td>`
+    new_row.appendChild(task_cell);
 
-    // let actions_cell = document.createElement("td");
-    // actions_cell.innerHTML = `<button class="act_btn" id="${row.serial}_done">Done</button>
-    //                         <button class="act_btn" id="${row.serial}_remove">Remove</button>`
-    // new_row.appendChild(actions_cell);
+    let actions_cell = document.createElement("td");
+    actions_cell.innerHTML = `<button class="act_btn" id="${row.serial}_done" >Done</button>
+                            <button class="act_btn" id="${row.serial}_remove" >Remove</button>`
+    new_row.appendChild(actions_cell);
 
-    // table_body.appendChild(new_row);
+    table_body.appendChild(new_row);
 
 }
 
 const iterate = () => {
-
+    document.getElementById("table_body").innerHTML = "";
     arr_storage = get_array();
 
     arr_storage.map((todo) => {
