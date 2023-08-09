@@ -105,11 +105,10 @@ button:hover {
 #add_btn:hover {
     background-color:rgb(145, 43, 0);
 }
-#done_btn {
-    background-color: green;
-}
-#remove_btn {
-    background-color: brown;
+.act_btn {
+    padding: 10px 10px;
+    margin:auto;
+
 }
 
 #task_input {
@@ -151,7 +150,10 @@ td {
     padding: 5px 10px;
     font-family: "Tektur" , sans-serif;
     padding-left: 30px;
-
+    border-radius: 20px;
+}
+.task_cell {
+    width: 170px
 }
 
 footer {
