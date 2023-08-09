@@ -72,7 +72,7 @@ const store_object = () => {
     arr_storage = get_array();
 
     if (input !== "") {
-        let serial_number = arr_storage[arr_storage.length-1].serial+1;
+        let serial_number = arr_storage[arr_storage.length-1].serial+1 || 1;
 
         console.log(serial_number);
 
@@ -95,7 +95,7 @@ const store_object = () => {
 }
 
 const done_btn = (id) => {
-    
+
     let initial_arr = get_array();
     for (let i = 0; i < initial_arr.length; i++) {
         if (initial_arr[i].serial == id) {
