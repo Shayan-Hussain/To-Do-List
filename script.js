@@ -72,13 +72,14 @@ const store_object = () => {
     arr_storage = get_array();
 
     if (input !== "") {
-        let serial_number = arr_storage.length;
+        let serial_number = arr_storage[arr_storage.length-1].serial+1;
 
         console.log(serial_number);
 
         let new_object = {
             serial : serial_number,
-            task : input
+            task : input,
+            done : false
         }
 
         arr_storage.push(new_object);
@@ -91,20 +92,28 @@ const store_object = () => {
     document.getElementById("task_input").value = "";
     iterate();
 
-    iterate();
-
 }
 
+const done_btn = (id) => {
+    
+    let initial_arr = get_array();
+    for (let i = 0; i < initial_arr.length; i++) {
+        if (initial_arr[i].serial == id) {
+            initial_arr[i].done = !initial_arr[i].done;
+            break;
+        }
+    }
+    localStorage.setItem("arr", JSON.stringify(initial_arr));
+
+    iterate();
+}
 
 const create_new_row = (row) => {
-
-<<<<<<< HEAD
-    console.log(row.task)
     
-
     let table_body = document.getElementById("table_body");
 
     let new_row = document.createElement("tr");
+    new_row.style.backgroundColor = row.done?"green":"";
 
     let serial_cell = document.createElement("td");
     serial_cell.innerHTML = `<td>${row.serial}</td>`
@@ -115,42 +124,17 @@ const create_new_row = (row) => {
     new_row.appendChild(task_cell);
 
     let actions_cell = document.createElement("td");
-    actions_cell.innerHTML = `<button class="act_btn" id="${row.serial}_done" >Done</button>
+    actions_cell.innerHTML = `<button class="act_btn" id="${row.serial}_done" onclick="done_btn(${row.serial})">Done</button>
                             <button class="act_btn" id="${row.serial}_remove" >Remove</button>`
     new_row.appendChild(actions_cell);
 
-=======
-    let table_body = document.getElementById("table_body");
-
-    let new_row = document.createElement("tr");
-
-    let serial_cell = document.createElement("td");
-    serial_cell.innerHTML = `<td>${row.serial+1}</td>`
-    new_row.appendChild(serial_cell);
-
-    let task_cell = document.createElement("td");
-    task_cell.innerHTML = `<td>${row.task}</td>`
-    new_row.appendChild(task_cell);
-
-    let actions_cell = document.createElement("td");
-    actions_cell.innerHTML = `<button class="act_btn" id="${row.serial}_done">Done</button>
-                            <button class="act_btn" id="${row.serial}_remove">Remove</button>`
-    new_row.appendChild(actions_cell);
-
->>>>>>> c2fb5bf (Cleaned up the code)
     table_body.appendChild(new_row);
 
 }
 
 const iterate = () => {
-<<<<<<< HEAD
     document.getElementById("table_body").innerHTML = "";
-=======
-
-    document.getElementById("table_body").innerHTML = "";
-
->>>>>>> c2fb5bf (Cleaned up the code)
-    arr_storage = get_array();
+    let arr_storage = get_array();
 
     arr_storage.map((todo) => {
 
@@ -159,7 +143,7 @@ const iterate = () => {
     })
 }
 
-arr_storage = get_array();
+let arr_storage = get_array();
 
 if (arr_storage == null) {
     arr_storage = localStorage.setItem("arr", JSON.stringify(arr));
